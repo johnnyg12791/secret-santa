@@ -1,0 +1,9 @@
+<h1>Add People and Families here</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'ssapp:setup' %}" method="post">
+{% csrf_token %}
+    <input type="text" name="choice" id="testing" />
+<input type="submit" value="Vote" />
+</form>

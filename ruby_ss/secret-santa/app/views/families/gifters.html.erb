@@ -1,0 +1,9 @@
+<%= link_to 'Back to other families', '/families',
+    method: :get,
+   	data: {}%></br>
+<br><br>
+
+View the people you have been assigned to:<br>
+<% @family_members.each do |family_member| %>
+	<%= family_member.gifter_string %><br>
+<% end %>

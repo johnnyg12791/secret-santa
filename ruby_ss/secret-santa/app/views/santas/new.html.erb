@@ -1,0 +1,45 @@
+<h3>See who you have added so far</h3>
+
+<!-- Display the people already added in this session -->
+<table border="1" style="width:100%">
+<tr>
+<td>Name</td><td>Family</td><td>Delete</td>
+</tr>
+
+<% @people_in_session.each do |p| %>
+<tr>
+   <td><%= p.name %></td>
+   <td><%= p.family.name %></td>
+   <td><%= link_to 'Delete Person', santa_path(p),
+   		   method: :delete,
+   		   data: {confirm: 'Are you sure'}%></td>
+   <!-- With option to delete -->
+</tr>
+<% end %>
+
+</table>
+
+<br><br>
+
+<h3>And add more people below</h3>
+
+
+<!-- Add another person -->
+<%= form_for :person, url: santas_path do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :family_name %>
+    <%= f.text_field :family_name %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<!--I want to generate gift givers -->
+<br><br>
+<h3>Are you done?</h3>
+<%= link_to 'Generate Gifters and Giftees', '/families', :method => :post %>

@@ -1,0 +1,9 @@
+{% if gifters_dict %}
+  <ul>
+  {% for giver, giftee in gifters_dict.items %}
+  <li> 
+  Gifter: {{giver}} --> {{giftee.0}} of family: {{giftee.1}} </li>
+  {% endfor %}
+{% else %}
+  <p> Invalid family id </p>
+{% endif %}

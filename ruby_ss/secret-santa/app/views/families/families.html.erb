@@ -1,0 +1,10 @@
+<h3>Click <a href="/santas/new">here</a> to assign more people</h3>
+
+
+<h3>Prepare to see who is matched with whom</h3>
+
+<% @families.each do |family| %>
+	<%= link_to family.name, '/families/' + family.id.to_s,
+   		   method: :get,
+   		   data: {}%></br>
+<% end %>
